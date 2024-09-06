@@ -1,7 +1,39 @@
+import os
+import uuid
+import urllib.parse
+
+import dotenv
+import pandas as pd
+import streamlit as st
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-import pandas as pd
-import urllib.parse
+
+
+dotenv.load_dotenv()
+
+
+@st.cache_resource
+def mongodb_client():
+    uri_template = "mongodb+srv://{username}:{password}@serverlessinstance0.fs8o4zf.mongodb.net/?retryWrites=true&w=majority&appName=ServerlessInstance0"
+
+    username = urllib.parse.quote_plus(os.environ.get('MONGO_USERNAME'))
+    password = urllib.parse.quote_plus(os.environ.get('MONGO_PASSWORD'))
+
+    uri = uri_template.format(username=username, password=password)
+
+    client = MongoClient(uri, server_api=ServerApi('1'))
+
+    return client
+
+
+def return_collection(collection_name):  
+    db_name = 'HotelData'
+    client = mongodb_client()
+    
+    db = client[db_name]
+    collection = db[collection_name]
+    
+    return collection
 
 
 def standardize_key(key):
@@ -63,33 +95,98 @@ def standardize_keys(document):
     return standardized_document
 
 
-uri_template = "mongodb+srv://{username}:{password}@serverlessinstance0.fs8o4zf.mongodb.net/?retryWrites=true&w=majority&appName=ServerlessInstance0"
+def create_search_query(role, region, industry, pe_backed=True):
+    search_query_collection = return_collection(collection_name="search_query")
+    
+    unique_id = str(uuid.uuid4())
+    linkedin_company_names = li_url_from_pitchbook(region, industry)
+    
+    search_query = {
+        "search_query_id": unique_id,
+        "role": role,
+        "region": region,
+        "industry": industry,
+        "pe_backed": pe_backed,
+        "linkedin_company_name": linkedin_company_names,
+        "linkedin_scrape_status": "todo"
+    }
+    
+    search_query_collection.insert_one(search_query)
+    
+    return unique_id
 
-username = "lukeg"
-password = "v3iJ2OSNoHKooUYA"
 
-username = urllib.parse.quote_plus(username)
-password = urllib.parse.quote_plus(password)
+def return_pitchbook_data(query={}, standardize=True):
+    collection = return_collection(collection_name='URLS')
+    results = collection.find(query).limit(3000)
+    results = list(results) # needed as the cursor object is weird when you interact with it directly so save variable as list then interact with
 
-uri = uri_template.format(username=username, password=password)
+    if standardize:
+        standardized_results = [standardize_keys(doc) for doc in results]
+        data = pd.DataFrame(standardized_results)
+    else:
+        data = pd.DataFrame(results)
+    
+    return data
 
-client = MongoClient(uri, server_api=ServerApi('1'))
 
-db_name = 'HotelData'
-collection_name = 'URLS'
+@st.cache_data(show_spinner=False)
+def pe_backed_with_url():
+    collection = return_collection(collection_name='URLS')
+    pe_with_url_query = {
+        '$and': [
+            {"financingStatus": "Private Equity-Backed"},  # Ensure financing status is "Private Equity-Backed"
+            {"LinkedinURL": {"$ne": ""}},  # Ensure LinkedinURL is not an empty string
+            {"corporateOffice": {"$nin": [None, False, "", [], {}]}},
+        ]
+    }
+    documents = collection.find(pe_with_url_query, {"primaryIndustry": 1, "corporateOffice": 1, "_id": 0})
+    results = list(documents)
+    
+    pe_backed_data = pd.DataFrame(results)
+    
+    pe_backed_data['Region'] = pe_backed_data['corporateOffice'].apply(lambda region: region.split(",")[-1].strip())
+    
+    return pe_backed_data[['Region', 'primaryIndustry']]
 
-db = client[db_name]
-collection = db[collection_name]
 
-query = {}
-results = collection.find(query).limit(300)
-results = list(results) # needed as the cursor object is weird when you interact with it directly so save variable as list then interact with
+def li_url_from_pitchbook(region, industry):
+    collection = return_collection(collection_name='URLS')
+    # MongoDB query
+    query = {
+        "primaryIndustry": industry,
+        "financingStatus": "Private Equity-Backed",
+        "LinkedinURL": {"$ne": ""},  # Ensure LinkedinURL is not an empty string
+        "corporateOffice": {"$regex": region, "$options": "i"}  # Search for the region within the corporateOffice string
+    }
 
-standardized_results = [standardize_keys(doc) for doc in results]
+    # Execute the query
+    documents = collection.find(query)
+    results = list(documents)
+    
+    # Extract company name from Lini
+    linkedin_company_names = [res['LinkedinURL'].split('/')[-1] for res in results]
+    
+    return linkedin_company_names
 
-data = pd.DataFrame(standardized_results)
 
-breakpoint()
+if __name__ == "__main__":
+    # pe_backed_with_url()
+    # results = li_url_from_pitchbook(region="San Antonio", industry="Regional Banks")
+    create_search_query("CFO", region="San Antonio", industry="Regional Banks")
+    
+    breakpoint()
 
+
+
+
+
+
+
+
+
+
+
+# NOTE - for issue with column names
 # Filter out all the data that doesn't fall into one of the predefined columns
 # See if I can get a percentage of the dirt data and see how small this is
