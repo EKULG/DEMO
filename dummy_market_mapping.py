@@ -15,6 +15,7 @@ selected_company = st.selectbox(
     ["Select..."] + df["Company name"].tolist()
 )
 
+
 # Tags Section
 if selected_company != "Select...":
     selected_data = df[df["Company name"] == selected_company].iloc[0]
