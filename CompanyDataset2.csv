@@ -31,7 +31,7 @@ Spotify,Music streaming service offering on-demand access to songs.,Entertainmen
 TikTok,Short-form video hosting service with user-generated content.,Technology,"Social Media, Entertainment","Short videos, content sharing, mobile app","Viral Content, Youth Engagement","Advertising, In-App Purchases",Private (ByteDance Ltd.),1
 Coca-Cola,Beverage company known for its flagship cola product.,Food & Beverage,Non-Alcoholic Beverages,"Soft drinks, juices, bottled water","Global Brand, Refreshment","Manufacturing, Distribution, Franchising",Public,5
 PepsiCo,"Multinational food, snack, and beverage corporation.",Food & Beverage,"Beverages, Snacks","Soft drinks, snack foods, bottled water","Diverse Portfolio, Global Brand","Manufacturing, Distribution, Diversification",Public,5
-NestlŽ,Largest food and beverage company offering a wide range of products.,Food & Beverage,"Packaged Foods, Beverages","Coffee, bottled water, baby food, pet food","Global Presence, Diverse Products","Manufacturing, Distribution, Brand Management",Public,5
+Nestlï¿½,Largest food and beverage company offering a wide range of products.,Food & Beverage,"Packaged Foods, Beverages","Coffee, bottled water, baby food, pet food","Global Presence, Diverse Products","Manufacturing, Distribution, Brand Management",Public,5
 Unilever,Specializes in food and personal care products.,Consumer Goods,"Food & Beverage, Personal Care, Home Care","Soap, shampoo, ice cream, tea","Sustainable Living, Global Brands","Manufacturing, Marketing, Brand Portfolio",Public,4
 Danone,Focuses on dairy products and specialized nutrition.,Food & Beverage,"Dairy Products, Water, Specialized Nutrition","Yogurt, bottled water, infant nutrition","Health-Focused, Sustainable Practices","Manufacturing, Distribution",Public,5
 Tesla,Electric vehicle and clean energy company.,Automotive,"Electric Vehicles, Renewable Energy","Electric cars, solar panels, energy storage","Innovation, Sustainability, High-Performance EVs","Manufacturing, Direct Sales",Public,1
@@ -40,8 +40,8 @@ Toyota,Automotive manufacturer known for reliability.,Automotive,Vehicle Manufac
 General Motors,Produces vehicles and vehicle parts.,Automotive,Vehicle Manufacturing,"Cars, trucks, automotive parts","Diverse Brands, Innovation","Manufacturing, Dealership Sales",Public,1
 Volkswagen,Produces a wide range of vehicles.,Automotive,Vehicle Manufacturing,"Cars, trucks, commercial vehicles","German Engineering, Diverse Brands","Manufacturing, Dealership Sales",Public,1
 Procter & Gamble,Consumer goods corporation.,Consumer Goods,"Personal Care, Household Products","Detergents, shampoos, diapers","Trusted Brands, Innovation","Manufacturing, Marketing, Brand Management",Public,3
-L'OrŽal,World's largest cosmetics and beauty company.,Personal Care,"Cosmetics, Skincare, Haircare","Makeup, skincare products, haircare","Beauty Innovation, Diverse Brands","Manufacturing, Marketing, Brand Portfolio",Public,2
-EstŽe Lauder,"Manufacturer of prestige skincare, makeup, and fragrances.",Personal Care,"Cosmetics, Skincare, Fragrances","High-end cosmetics, skincare, fragrances","Luxury Brands, Prestige Beauty","Manufacturing, Marketing, Brand Portfolio",Public,2
+L'Orï¿½al,World's largest cosmetics and beauty company.,Personal Care,"Cosmetics, Skincare, Haircare","Makeup, skincare products, haircare","Beauty Innovation, Diverse Brands","Manufacturing, Marketing, Brand Portfolio",Public,2
+Estï¿½e Lauder,"Manufacturer of prestige skincare, makeup, and fragrances.",Personal Care,"Cosmetics, Skincare, Fragrances","High-end cosmetics, skincare, fragrances","Luxury Brands, Prestige Beauty","Manufacturing, Marketing, Brand Portfolio",Public,2
 Colgate,Specializes in oral and personal care products.,Consumer Goods,"Oral Care, Personal Care, Home Care","Toothpaste, soap, pet nutrition","Trusted Brands, Global Presence","Manufacturing, Marketing, Brand Management",Public,3
 Nike,"Designer of athletic footwear, apparel, and equipment.",Apparel,"Sporting Goods, Footwear","Athletic shoes, apparel, sports equipment","Innovation, Performance, Brand Leadership","Manufacturing, Retail Stores, E-commerce",Public,2
 Adidas,Designs and manufactures sports shoes and apparel.,Apparel,"Sporting Goods, Footwear","Athletic shoes, apparel, accessories","Performance, Style, Global Brand","Manufacturing, Retail Stores, E-commerce",Public,2
@@ -66,7 +66,7 @@ Conagra Brands,Food company producing packaged foods for retail and foodservice.
 The Home Depot,Largest home improvement retailer offering tools and construction products.,Retail,"Home Improvement, Retail","Tools, appliances, building materials","DIY Solutions, Professional Services","Brick-and-Mortar Retail, E-commerce",Public,2
 Lowe's,Home improvement retailer offering products and services.,Retail,"Home Improvement, Retail","Hardware, appliances, tools","Home Projects, DIY, Professional Supplies","Brick-and-Mortar Retail, E-commerce",Public,2
 Best Buy,Consumer electronics retailer offering a wide range of products.,Retail,"Electronics, Appliances","TVs, computers, appliances","Technology Products, Customer Service","Brick-and-Mortar Retail, E-commerce",Public,2
-IKEA,Multinational group offering ready-to-assemble furniture and home accessories.,Retail,"Furniture, Home Goods","Furniture, home dŽcor, kitchenware","Affordable Design, DIY Assembly","Retail Stores, E-commerce",Private,2
+IKEA,Multinational group offering ready-to-assemble furniture and home accessories.,Retail,"Furniture, Home Goods","Furniture, home dï¿½cor, kitchenware","Affordable Design, DIY Assembly","Retail Stores, E-commerce",Private,2
 Walgreens Boots Alliance,Global pharmacy-led health and wellbeing enterprise.,Retail,"Pharmacy, Health & Wellness","Pharmaceuticals, health products","Convenience, Health Services","Retail Pharmacies, E-commerce",Public,2
 CVS Health,Healthcare company with pharmacy chain and health services.,"Healthcare, Retail","Pharmacy, Health Services","Prescriptions, health insurance, clinics","Integrated Healthcare, Accessibility","Retail Pharmacies, Health Services",Public,2
 Seven & i Holdings (7-Eleven),Operator of convenience stores worldwide.,Retail,"Convenience Stores, Retail","Snacks, beverages, everyday essentials","Convenience, Accessibility","Franchising, Retail Locations",Public,3
@@ -93,22 +93,3 @@ Coca-Cola European Partners,Bottling partner for Coca-Cola products in Europe.,B
 Tyson Foods,"Leading global processor and marketer of chicken, beef, and pork.",Food Products,"Meat Processing, Packaged Foods","Chicken, beef, pork products","Quality Meat Products, Supply Chain Excellence","Manufacturing, Distribution",Public,5
 General Mills,Major global manufacturer of branded consumer foods.,Food Products,"Packaged Foods, Breakfast Foods","Cereals, snacks, baking products","Trusted Brands, Diverse Product Range","Manufacturing, Distribution",Public,5
 Campbell Soup Company,"Leading producer of soups, beverages, and snacks.",Food Products,"Packaged Foods, Beverages","Soups, beverages, snacks","Comfort Foods, Trusted Brands","Manufacturing, Distribution",Public,5
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,

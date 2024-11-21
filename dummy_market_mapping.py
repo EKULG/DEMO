@@ -12,21 +12,21 @@ st.title("Market Mapping Demo")
 # Dropdown for company selection
 selected_company = st.selectbox(
     "Select target company",
-    ["Select..."] + df["Company name"].tolist()
+    ["Select..."] + df["Company Name"].tolist()
 )
 
 
 # Tags Section
 if selected_company != "Select...":
-    selected_data = df[df["Company name"] == selected_company].iloc[0]
+    selected_data = df[df["Company Name"] == selected_company].iloc[0]
     
     # Get all possible options for each category
     all_tags = {
         "Industry": df["Industry"].unique().tolist(),
         "Industry Sectors": set(sector.strip() for sectors in df["Industry Sectors"].str.split(",") for sector in sectors),
-        "Key product & or services": set(product.strip() for products in df["Key product & or services"].str.split(",") for product in products),
-        "Market positioning": set(position.strip() for positions in df["Market positioning"].str.split(",") for position in positions),
-        "Business model": df["Business model"].unique().tolist(),
+        "Key Products & Services": set(product.strip() for products in df["Key Products & Services"].str.split(",") for product in products),
+        "Market Positioning": set(position.strip() for positions in df["Market Positioning"].str.split(",") for position in positions),
+        "Business Model": df["Business Model"].unique().tolist(),
         "Ownership": df["Ownership"].unique().tolist()
     }
     
@@ -34,9 +34,9 @@ if selected_company != "Select...":
     company_tags = {
         "Industry": [selected_data["Industry"]],
         "Industry Sectors": [s.strip() for s in selected_data["Industry Sectors"].split(",")],
-        "Key product & or services": [s.strip() for s in selected_data["Key product & or services"].split(",")],
-        "Market positioning": [s.strip() for s in selected_data["Market positioning"].split(",")],
-        "Business model": [selected_data["Business model"]],
+        "Key Products & Services": [s.strip() for s in selected_data["Key Products & Services"].split(",")],
+        "Market Positioning": [s.strip() for s in selected_data["Market Positioning"].split(",")],
+        "Business Model": [selected_data["Business Model"]],
         "Ownership": [selected_data["Ownership"]]
     }
     
@@ -63,7 +63,7 @@ if selected_company != "Select...":
         filtered_df = filtered_df[filtered_df["Industry"].isin(selected_filters["Industry"])]
     
     # For comma-separated fields, check if any selected tag is in the list
-    for field in ["Industry Sectors", "Key product & or services", "Market positioning"]:
+    for field in ["Industry Sectors", "Key Products & Services", "Market Positioning"]:
         if selected_filters[field]:
             filtered_df = filtered_df[
                 filtered_df[field].apply(
@@ -72,8 +72,8 @@ if selected_company != "Select...":
             ]
     
     # Apply filters for single-value fields
-    if selected_filters["Business model"]:
-        filtered_df = filtered_df[filtered_df["Business model"].isin(selected_filters["Business model"])]
+    if selected_filters["Business Model"]:
+        filtered_df = filtered_df[filtered_df["Business Model"].isin(selected_filters["Business Model"])]
     
     if selected_filters["Ownership"]:
         filtered_df = filtered_df[filtered_df["Ownership"].isin(selected_filters["Ownership"])]
@@ -81,7 +81,7 @@ if selected_company != "Select...":
     # Display Data Table
     st.subheader("Similar Companies")
     st.write(
-        filtered_df.sort_values(by="Similarity score", ascending=False).style.highlight_max(
-            subset=["Similarity score"], axis=0
+        filtered_df.sort_values(by="Similarity Score", ascending=False).style.highlight_max(
+            subset=["Similarity Score"], axis=0
         )
     )
