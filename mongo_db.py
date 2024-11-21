@@ -116,9 +116,9 @@ def create_search_query(role, region, industry, pe_backed=True):
     return unique_id
 
 
-def return_pitchbook_data(query={}, standardize=True):
+def return_pitchbook_data(query={}, standardize=True, limit=3000):
     collection = return_collection(collection_name='URLS')
-    results = collection.find(query).limit(3000)
+    results = collection.find(query).limit(limit)
     results = list(results) # needed as the cursor object is weird when you interact with it directly so save variable as list then interact with
 
     if standardize:
