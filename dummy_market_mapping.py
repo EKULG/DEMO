@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 
 
+st.set_page_config(layout="wide")
+
 # Load the data
 df = pd.read_csv("large_realistic_companies.csv")
 
