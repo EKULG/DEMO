@@ -4,7 +4,7 @@ import pandas as pd
 st.set_page_config(layout="wide")
 
 # Load the data
-df = pd.read_csv("large_realistic_companies.csv")
+df = pd.read_csv("CompanyDataset2.csv")
 
 # Streamlit App UI
 st.title("Market Mapping Demo")
